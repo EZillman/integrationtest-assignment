@@ -24,11 +24,13 @@ describe('everything with init', () => {
             resolve();
         }));
 
+        let searchForm = document.querySelector('#searchForm') as HTMLFormElement;
+
         // Act
         movieApp.init();
+        searchForm.submit();
 
         // Assert
-        (document.querySelector('searchForm') as HTMLFormElement)?.submit();
         expect(tiredSpy).toHaveBeenCalled();
         tiredSpy.mockRestore();
     });
