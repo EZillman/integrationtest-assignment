@@ -3,8 +3,9 @@
  */
 
 
-import { getData, testArray } from "../ts/services/__mocks__/movieservice";
-
+import { testArray } from "../ts/services/__mocks__/movieservice";
+import { getData } from '../ts/services/movieservice';
+ 
 
 jest.mock('axios', () => ({
     get: async (url: string) => {
@@ -28,7 +29,7 @@ describe('everything with getData', () => {
         // Arrange
 
         // Act 
-        let result = await getData();
+        let result = await getData('ella');
     
         // Assert
         expect(result.length).toBe(3);
@@ -38,7 +39,7 @@ describe('everything with getData', () => {
 
     test('should not be able to fetch data from testArray', async () => {
         try {
-            await getData();
+            await getData('error');
         } catch (error: any) {
             expect(error.length).toBe(0);
         }
