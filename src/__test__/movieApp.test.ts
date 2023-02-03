@@ -36,3 +36,22 @@ describe('everything with init', () => {
         tiredSpy.mockRestore();
     });
 });
+
+
+describe('everything with displayNoResult', () => {
+
+    test('should display a p tag as a message', () => {
+
+        // Arrange
+        document.body.innerHTML = `<div id="movie-container"></div>`;
+        
+        let container = document.querySelector('#movie-container') as HTMLDivElement;
+
+        // Act
+        movieApp.displayNoResult(container);
+
+        // Assert
+        let message = document.querySelector('#movie-container > p')?.innerHTML;
+        expect(message).toBe('Inga sökresultat att visa');
+    });
+});

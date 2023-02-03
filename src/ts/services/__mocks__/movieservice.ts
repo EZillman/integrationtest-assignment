@@ -13,5 +13,5 @@ export async function getData(): Promise<IMovie[]> {
         } else {
             reject('No movies found');
         }
-    });
+    }); 
 };

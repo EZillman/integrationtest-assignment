@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-
+//import axios from "axios";
 import { testArray } from "../ts/services/__mocks__/movieservice";
 import { getData } from '../ts/services/movieservice';
  
@@ -11,7 +11,7 @@ jest.mock('axios', () => ({
     get: async (url: string) => {
         return new Promise((resolve, reject) => {
             if (url.endsWith('error')) {
-                reject([]);
+                reject({ data: []});
             }
             else {
                 resolve ({data: {Search: testArray}});
@@ -19,7 +19,7 @@ jest.mock('axios', () => ({
         });
 
     }
-}));
+})); 
 
 
 describe('everything with getData', () => {
