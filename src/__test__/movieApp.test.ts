@@ -104,17 +104,6 @@ describe('everything with handleSubmit', () => {
         //bengalSpy.mockRestore();
 
     });
-/*
-    test('Should call displayNoResult and get an error', async () => {
-
-        // Arrange
-
-        // Act
-        await movieApp.handleSubmit();
-
-        // Assert
-
-    }); */
 }); 
 
 
